@@ -15,8 +15,9 @@ encodegln(s,n)={
 }
 
 decodegln(M)={
-  my(v);
-  v= concat(Vec(M~))~;
+  my(v,n);
+  n= matsize(M)[1];
+  v= Vec( concat(Vec(M~))~, n*n-1);
   v= Strchr([ if (s == 0, 32, s + 96) | s <- v]);
   v;
 }
